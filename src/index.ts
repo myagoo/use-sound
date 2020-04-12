@@ -88,10 +88,10 @@ export default function useSound(
         options = {};
       }
 
-      if (!sound || (!soundEnabled && !options.forceSoundEnabled)) {
+      if (!sound || (options.forceSoundEnabled === undefined && !soundEnabled) || !options.forceSoundEnabled)) {
         return;
       }
-
+           
       if (interrupt) {
         sound.stop();
       }
